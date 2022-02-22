@@ -1,5 +1,5 @@
 use mongodb::{sync::Client, results::InsertOneResult};
-use chrono::{TimeZone, Utc};
+use chrono::{Utc, Datelike};
 use mongodb::bson::doc;
 use std::env;
 use std::error::Error;
@@ -34,12 +34,12 @@ pub fn connect() -> Client {
    client
 }
 
-pub fn insert(client: &Client) -> DbResult<InsertOneResult> {
+pub fn insert(client: &Client, str: &String) -> DbResult<InsertOneResult> {
    let new_doc = doc! {
-      "title": "doc",
-      "year": 2020,
-      "attr1": "val1",
-      "date": Utc.ymd(2020, 2, 7).and_hms(0, 0, 0),
+      "title": str,
+      "year": Utc::now().year(),
+      "attr1": str,
+      "date": Utc::now(),
    };
    // Get the 'rs' collection from the 'rs' database:
    let rs = client.database("rs").collection("rs");

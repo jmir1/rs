@@ -9,6 +9,7 @@ dependencies = [
  "actix-web",
  "bson",
  "chrono",
+ "lazy_static",
  "mongodb",
  "serde",
 ]

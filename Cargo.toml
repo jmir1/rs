@@ -10,4 +10,5 @@ actix-web = "3"
 mongodb = { version = "2.1", default-features = false, features = ["sync"] }
 bson = { version = "2", features = ["chrono-0_4"] } # Needed for using chrono datetime in doc
 chrono = "0.4" # Used for setting DateTimes
+lazy_static = "1.4.0"
 serde = "1" # Used in the Map Data into Structs section
